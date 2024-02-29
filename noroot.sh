@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -f rclone ]; then
     echo "No rclone executable found, installing first"
     curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
@@ -22,7 +24,7 @@ if [ -n "${CONFIG_BASE64}" ] || [ -n "${CONFIG_URL}" ]; then
     if [ -n "${CONFIG_BASE64}" ]; then
         echo "${CONFIG_BASE64}" | base64 -d > rclone.conf
     elif [ -n "${CONFIG_URL}" ]; then
-        curl $CONFIG_URL > rclone.conf
+        curl "$CONFIG_URL" > rclone.conf
     fi
     
     contents=$(cat rclone.conf)
