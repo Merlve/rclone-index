@@ -37,7 +37,8 @@ fi
 echo "Running rclone index"
 
 if [ -n "${USERNAME}" ] && [ -n "${PASSWORD}" ]; then
-    rclone serve http combine: --addr=:$PORT --user="$USERNAME" --pass="$PASSWORD" --read-only --config rclone.conf
+    ./rclone serve http combine: --addr=:$PORT --user="$USERNAME" --pass="$PASSWORD" --read-only --config rclone.conf
 else
-    rclone serve http combine: --addr=:$PORT --read-only --config rclone.conf
+    ./rclone serve http combine: --addr=:$PORT --read-only --config rclone.conf
 fi
+
